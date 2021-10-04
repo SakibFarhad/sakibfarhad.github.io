@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --aot --delete-output-path --output-path docs/",
+    "build": "ng build --aot --delete-output-path --output-path build/ && echo 'www.sakibfarhad.dev' > build/CNAME",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
