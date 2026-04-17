@@ -1,17 +1,107 @@
-<section class="hero text-center py-5">
-  <div class="container">
-    <h1 class="display-4">Md. Sakib Ibne Farhad</h1>
-    <p class="lead">Full-Stack Web Developer — Angular &amp; Node.js</p>
-    <p>
-      <a routerLink="/projects" class="btn btn-primary btn-lg">See projects</a>
-      <a routerLink="/contact" class="btn btn-outline-secondary btn-lg ms-2">Contact</a>
-    </p>
+<section class="hero text-center text-lg-start">
+  <div class="container py-5 py-lg-6">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-lg-7">
+        <p class="text-uppercase small fw-semibold letter-spacing text-white-50 mb-2">SRE &amp; DevOps</p>
+        <h1 class="display-5 fw-bold mb-3 text-white">{{ site.name }}</h1>
+        <p class="lead text-white-50 mb-4">{{ site.headline }}</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a routerLink="/projects" class="btn btn-primary btn-lg px-4">View highlights</a>
+          <a routerLink="/contact" class="btn btn-outline-light btn-lg px-4">Get in touch</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="hero-panel rounded-4 p-4 p-lg-5 text-start">
+          <p class="small text-uppercase fw-semibold text-secondary mb-3">At a glance</p>
+          <ul class="list-unstyled mb-0 small">
+            <li class="d-flex gap-2 mb-3">
+              <span class="hero-bullet" aria-hidden="true"></span>
+              <span><strong class="text-body">Focus</strong> — {{ site.focus }}</span>
+            </li>
+            <li class="d-flex gap-2 mb-3">
+              <span class="hero-bullet" aria-hidden="true"></span>
+              <span><strong class="text-body">Location</strong> — {{ site.location }}</span>
+            </li>
+            <li class="d-flex gap-2">
+              <span class="hero-bullet" aria-hidden="true"></span>
+              <span><strong class="text-body">Stack</strong> — {{ site.stackSummary }}</span>
+            </li>
+            <li class="d-flex gap-2">
+              <span class="hero-bullet" aria-hidden="true"></span>
+              <span><strong class="text-body">Experience</strong> — {{ site.yearsExperience }} years</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="about container py-4">
-  <h2>About me</h2>
-  <p>
-    Passionate developer with experience building responsive web apps using Angular, Bootstrap and modern TypeScript.
-  </p>
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let item of highlights">
+        <article class="h-100 highlight-card rounded-4 p-4">
+          <h2 class="h5 fw-semibold mb-2">{{ item.title }}</h2>
+          <p class="text-secondary small mb-0">{{ item.text }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-body border-top border-bottom">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3 mb-4">
+      <div>
+        <h2 class="h3 fw-bold mb-2">Featured highlights</h2>
+        <p class="text-secondary mb-0">Site automation, public work on GitHub, and what I’m looking for next.</p>
+      </div>
+      <a routerLink="/projects" class="btn btn-outline-primary">All highlights</a>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6" *ngFor="let p of featuredProjects">
+        <article class="project-preview position-relative h-100 rounded-4 p-4 d-flex flex-column">
+          <h3 class="h5 fw-semibold mb-2">{{ p.title }}</h3>
+          <p class="text-secondary small flex-grow-1">{{ p.description }}</p>
+          <div class="d-flex flex-wrap gap-1 mb-3">
+            <span *ngFor="let tag of p.tags" class="badge rounded-pill text-bg-light border">{{ tag }}</span>
+          </div>
+          <div class="mt-auto">
+            <a
+              *ngIf="p.url"
+              [href]="p.url"
+              class="stretched-link text-decoration-none fw-semibold"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit site <i class="fas fa-arrow-up-right-from-square ms-1 small" aria-hidden="true"></i>
+            </a>
+            <a
+              *ngIf="!p.url && p.repoUrl"
+              [href]="p.repoUrl"
+              class="stretched-link text-decoration-none fw-semibold"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on GitHub <i class="fab fa-github ms-1 small" aria-hidden="true"></i>
+            </a>
+            <a *ngIf="!p.url && !p.repoUrl" routerLink="/contact" class="stretched-link text-decoration-none fw-semibold"
+              >Start a conversation</a
+            >
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container text-center">
+    <h2 class="h3 fw-bold mb-3">Let’s talk infrastructure &amp; reliability</h2>
+    <p class="text-secondary col-lg-8 mx-auto mb-4">
+      Hiring for SRE, DevOps, or cloud platform roles—or exploring opportunities in Canada? I’m open to the right fit and remote-friendly teams.
+    </p>
+    <a routerLink="/contact" class="btn btn-primary btn-lg px-4">Contact</a>
+  </div>
 </section>

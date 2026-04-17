@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
+import { contactInfo, siteMeta } from '../../data/site-content';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
+  readonly site = siteMeta;
+  readonly contact = contactInfo;
   model = { name: '', email: '', message: '' };
+  submitted = false;
 
   submit() {
-    // In a real app you would send the message to a backend.
-    console.log('Contact form submitted', this.model);
-    alert('Thanks — message submitted (demo).');
+    this.submitted = true;
     this.model = { name: '', email: '', message: '' };
   }
 }

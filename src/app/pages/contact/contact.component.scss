@@ -1,2 +1,8 @@
-/* simple spacing */
-.container label { font-weight: 600; }
+.page-hero .letter-spacing {
+  letter-spacing: 0.12em;
+}
+
+.contact-form .form-label {
+  font-weight: 600;
+  color: var(--body-color, #0f172a);
+}

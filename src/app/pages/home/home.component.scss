@@ -1,3 +1,60 @@
 .hero {
-  background: linear-gradient(90deg, rgba(13,110,253,0.06), rgba(102,16,242,0.03));
+  background: var(--app-hero-bg);
+  color: var(--app-hero-fg);
+}
+
+.hero-panel {
+  background: color-mix(in srgb, var(--bs-body-bg) 94%, white);
+  box-shadow: var(--app-shadow);
+  border: 1px solid var(--app-card-border);
+}
+
+[data-bs-theme='dark'] .hero-panel {
+  background: color-mix(in srgb, var(--bs-body-bg) 88%, #1e293b);
+}
+
+.hero-bullet {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--bs-primary);
+  margin-top: 0.35rem;
+  flex-shrink: 0;
+}
+
+.highlight-card {
+  background: var(--bs-body-bg);
+  border: 1px solid var(--app-card-border);
+  box-shadow: var(--app-shadow-sm);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--app-shadow);
+  }
+}
+
+.project-preview {
+  position: relative;
+  background: var(--bs-body-bg);
+  border: 1px solid var(--app-card-border);
+  box-shadow: var(--app-shadow-sm);
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--app-shadow);
+  }
+}
+
+.py-lg-6 {
+  @media (min-width: 992px) {
+    padding-top: 4.5rem !important;
+    padding-bottom: 4.5rem !important;
+  }
+}
+
+.letter-spacing {
+  letter-spacing: 0.12em;
 }

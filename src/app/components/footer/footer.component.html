@@ -1,10 +1,39 @@
-<!-- Footer -->
-<footer class="page-footer font-small blue pt-4">
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">
-    © {{ currentYear }} Copyright:
-    <a href="https://www.sakibfarhad.dev/"> Md. Sakib Ibne Farhad</a>
+<footer class="site-footer border-top mt-auto bg-body">
+  <div class="container py-4 py-lg-5">
+    <div class="row g-4 align-items-start">
+      <div class="col-md-6">
+        <p class="fw-semibold mb-2">{{ site.name }}</p>
+        <p class="text-secondary small mb-3 mb-md-0">
+          {{ site.role }} · {{ site.focus }}
+        </p>
+      </div>
+      <div class="col-md-3">
+        <p class="text-uppercase small fw-semibold text-secondary mb-2">Navigate</p>
+        <ul class="list-unstyled small mb-0">
+          <li><a routerLink="/about" class="link-secondary text-decoration-none">About</a></li>
+          <li><a routerLink="/projects" class="link-secondary text-decoration-none">Highlights</a></li>
+          <li><a routerLink="/contact" class="link-secondary text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <p class="text-uppercase small fw-semibold text-secondary mb-2">Connect</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a
+            *ngFor="let link of socialLinks"
+            [href]="link.href"
+            class="footer-social btn btn-sm btn-outline-secondary border"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="link.label"
+          >
+            <i [ngClass]="link.icon" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4 opacity-25" />
+    <p class="small text-secondary text-center text-md-start mb-0">
+      © {{ currentYear }} {{ site.name }}. Built with Angular.
+    </p>
   </div>
-  <!-- Copyright -->
 </footer>
-<!-- Footer -->

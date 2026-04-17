@@ -1,4 +1,16 @@
-.container ul {
-  list-style: disc;
-  margin-left: 1rem;
+.page-hero .letter-spacing {
+  letter-spacing: 0.12em;
+}
+
+.about-aside dt {
+  font-weight: 500;
+}
+
+.skill-card {
+  background: linear-gradient(180deg, var(--bs-body-bg) 0%, var(--bs-secondary-bg) 100%);
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--app-shadow-sm);
+  }
 }
