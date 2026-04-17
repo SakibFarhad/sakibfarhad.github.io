@@ -4,6 +4,8 @@
 }
 
 .hero-panel {
+  /* Override .hero’s light foreground so list lines (not only <strong>) stay readable on the panel. */
+  color: var(--bs-body-color);
   background: color-mix(in srgb, var(--bs-body-bg) 94%, white);
   box-shadow: var(--app-shadow);
   border: 1px solid var(--app-card-border);
