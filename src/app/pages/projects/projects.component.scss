@@ -1,3 +1,15 @@
-.card {
-  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+.page-hero .letter-spacing {
+  letter-spacing: 0.12em;
+}
+
+.project-card {
+  box-shadow: var(--app-shadow-sm);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--app-shadow);
+  }
 }

@@ -1,18 +1,90 @@
-<div class="container py-4">
-  <h2>Contact</h2>
-  <form (ngSubmit)="submit()" #contactForm="ngForm">
-    <div class="mb-3">
-      <label class="form-label">Name</label>
-      <input name="name" [(ngModel)]="model.name" class="form-control" required />
+<section class="page-hero border-bottom bg-body">
+  <div class="container py-5">
+    <p class="text-uppercase small fw-semibold text-secondary letter-spacing mb-2">Contact</p>
+    <h1 class="display-6 fw-bold mb-3">Let’s talk</h1>
+    <p class="lead text-secondary col-lg-8 mb-0">
+      SRE, DevOps, or cloud platform opportunities—remote, Bangladesh-based, or Canada relocation. Leave a note below (demo form), or
+      reach me directly by email or LinkedIn.
+    </p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5 justify-content-center">
+      <div class="col-lg-7">
+        <div *ngIf="submitted" class="alert alert-success border-0 shadow-sm mb-4" role="status">
+          <strong>Thanks.</strong> This demo form doesn’t send mail yet—use email or LinkedIn for a real response.
+        </div>
+
+        <form (ngSubmit)="submit()" #contactForm="ngForm" class="contact-form rounded-4 border bg-body p-4 p-md-5 shadow-sm" novalidate>
+          <div class="mb-3">
+            <label class="form-label" for="contact-name">Name</label>
+            <input
+              id="contact-name"
+              name="name"
+              [(ngModel)]="model.name"
+              class="form-control form-control-lg"
+              required
+              autocomplete="name"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="contact-email">Email</label>
+            <input
+              id="contact-email"
+              name="email"
+              [(ngModel)]="model.email"
+              class="form-control form-control-lg"
+              type="email"
+              required
+              autocomplete="email"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="form-label" for="contact-message">Message</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              [(ngModel)]="model.message"
+              class="form-control"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <button type="submit" [disabled]="!contactForm.form.valid" class="btn btn-primary btn-lg px-4">Send message</button>
+            <span class="text-secondary small">For a real inquiry, email me at <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>.</span>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-4">
+        <div class="rounded-4 border bg-body-secondary p-4 h-100">
+          <h2 class="h6 fw-semibold mb-3">Direct contact</h2>
+          <p class="small mb-3">
+            <a [href]="'mailto:' + contact.email" class="fw-semibold text-decoration-none">{{ contact.email }}</a>
+          </p>
+          <p class="small text-secondary mb-3">Best for SRE/DevOps roles, infra collaboration, or Canada relocation discussions.</p>
+          <h2 class="h6 fw-semibold mb-3">Profiles</h2>
+          <ul class="list-unstyled small mb-0">
+            <li class="mb-2">
+              <a [href]="contact.linkedInUrl" target="_blank" rel="noopener noreferrer" class="fw-semibold text-decoration-none">
+                LinkedIn <i class="fas fa-arrow-up-right-from-square ms-1" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a [href]="contact.githubUrl" target="_blank" rel="noopener noreferrer" class="fw-semibold text-decoration-none">
+                GitHub <i class="fas fa-arrow-up-right-from-square ms-1" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a [href]="contact.stackOverflowUrl" target="_blank" rel="noopener noreferrer" class="fw-semibold text-decoration-none">
+                Stack Overflow <i class="fas fa-arrow-up-right-from-square ms-1" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="mb-3">
-      <label class="form-label">Email</label>
-      <input name="email" [(ngModel)]="model.email" class="form-control" type="email" required />
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Message</label>
-      <textarea name="message" [(ngModel)]="model.message" class="form-control" rows="4" required></textarea>
-    </div>
-    <button [disabled]="!contactForm.form.valid" class="btn btn-primary">Send</button>
-  </form>
-</div>
+  </div>
+</section>

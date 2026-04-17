@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { socialLinks, siteMeta } from '../../data/site-content';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-
-  // Using CSS-based Font Awesome icons via CDN; no TS icon imports needed.
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class HeaderComponent {
+  readonly theme = inject(ThemeService);
+  readonly site = siteMeta;
+  readonly socialLinks = socialLinks;
 }

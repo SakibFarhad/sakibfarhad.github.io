@@ -1,13 +1,110 @@
-<div class="container py-4">
-  <h2>About</h2>
-  <p>
-    Hi — I'm Sakib. I build web applications with Angular and Node.js. I enjoy building polished UI and solving real problems.
-  </p>
-  <h3>Skills</h3>
-  <ul>
-    <li>Angular, TypeScript</li>
-    <li>Node.js, Express</li>
-    <li>Bootstrap, SCSS</li>
-    <li>Unit testing (Karma/Jasmine)</li>
-  </ul>
-</div>
+<section class="page-hero border-bottom bg-body">
+  <div class="container py-5">
+    <p class="text-uppercase small fw-semibold text-secondary letter-spacing mb-2">About</p>
+    <h1 class="display-6 fw-bold mb-3">Hi, I’m {{ site.shortName }}</h1>
+    <p class="lead text-secondary col-lg-9 mb-0">{{ site.headline }}</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-7">
+        <h2 class="h4 fw-semibold mb-3">Background</h2>
+        <p class="text-secondary mb-4">{{ site.bio }}</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a routerLink="/projects" class="btn btn-primary">Portfolio &amp; highlights</a>
+          <a routerLink="/contact" class="btn btn-outline-secondary">Contact</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="about-aside rounded-4 p-4 border bg-body shadow-sm">
+          <h2 class="h6 text-uppercase text-secondary fw-semibold mb-3">Details</h2>
+          <dl class="row small mb-0">
+            <dt class="col-4 text-secondary">Role</dt>
+            <dd class="col-8 mb-3">{{ site.role }}</dd>
+            <dt class="col-4 text-secondary">Focus</dt>
+            <dd class="col-8 mb-3">{{ site.focus }}</dd>
+            <dt class="col-4 text-secondary">Location</dt>
+            <dd class="col-8 mb-3">{{ site.location }}</dd>
+            <dt class="col-4 text-secondary">Phone</dt>
+            <dd class="col-8 mb-3">
+              <a [href]="'tel:' + site.phoneTel" class="text-decoration-none">{{ site.phone }}</a>
+            </dd>
+            <dt class="col-4 text-secondary">Email</dt>
+            <dd class="col-8 mb-0">
+              <a [href]="'mailto:' + site.email" class="text-decoration-none">{{ site.email }}</a>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-body border-top">
+  <div class="container">
+    <h2 class="h4 fw-semibold mb-4">Experience</h2>
+    <div class="experience-list">
+      <article *ngFor="let job of experience" class="experience-item rounded-4 border bg-body p-4 mb-4">
+        <div class="d-flex flex-column flex-md-row justify-content-md-between gap-2 mb-3">
+          <div>
+            <h3 class="h5 fw-semibold mb-1">{{ job.role }}</h3>
+            <p class="text-secondary mb-0 small">
+              {{ job.company }}<span *ngIf="job.location"> · {{ job.location }}</span>
+            </p>
+          </div>
+          <span class="text-secondary small text-md-end flex-shrink-0">{{ job.period }}</span>
+        </div>
+        <ul class="mb-0 ps-3 small text-secondary">
+          <li *ngFor="let line of job.highlights" class="mb-2">{{ line }}</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="h4 fw-semibold mb-4">Skills &amp; tools</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let group of skillGroups">
+        <div class="skill-card h-100 rounded-4 p-4 border">
+          <h3 class="h6 fw-semibold mb-3">{{ group.title }}</h3>
+          <ul class="list-unstyled small text-secondary mb-0">
+            <li *ngFor="let item of group.items" class="d-flex gap-2 mb-2">
+              <i class="fas fa-check text-primary mt-1" aria-hidden="true"></i>
+              <span>{{ item }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-body border-top">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6">
+        <h2 class="h4 fw-semibold mb-4">Education</h2>
+        <ul class="list-unstyled mb-0">
+          <li *ngFor="let edu of education" class="education-item rounded-4 border p-4 mb-3 mb-lg-0">
+            <p class="fw-semibold mb-1">{{ edu.degree }}</p>
+            <p class="text-secondary small mb-0">{{ edu.school }}</p>
+            <p *ngIf="edu.period" class="text-secondary small mt-2 mb-0">{{ edu.period }}</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <h2 class="h4 fw-semibold mb-4">Activities</h2>
+        <ul class="list-unstyled mb-0">
+          <li *ngFor="let line of activities" class="d-flex gap-2 mb-3 text-secondary small">
+            <i class="fas fa-circle text-primary mt-1" style="font-size: 0.35rem" aria-hidden="true"></i>
+            <span>{{ line }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

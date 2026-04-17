@@ -1,38 +1,66 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Welcome!!</a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<header>
+  <nav class="navbar navbar-expand-lg border-bottom bg-body-tertiary shadow-sm sticky-top py-2">
+    <div class="container">
+      <a class="navbar-brand fw-semibold text-body" routerLink="/" aria-label="Home">
+        {{ site.shortName }}<span class="text-primary d-none d-sm-inline"> · {{ site.role }}</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#siteNav"
+        aria-controls="siteNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/projects" routerLinkActive="active">Projects</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
-      </li>
-    </ul>
-    <div class="content">
-      <span><a href="https://github.com/SakibFarhad" target="_blank"><i class="fab fa-github fa-lg"></i></a></span>
-      <span><a href="https://www.facebook.com/md.sakib.ibne.farhad" target="_blank"><i class="fab fa-facebook fa-lg"></i></a></span>
-      <span><a href="https://www.reddit.com/user/sakib_farhad" target="_blank"><i class="fab fa-reddit fa-lg"></i></a></span>
-      <span><a href="https://www.linkedin.com/in/md-sakib-ibne-farhad-54279562/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a></span>
-      <span><a href="https://stackoverflow.com/users/6342106/sakib-farhad" target="_blank"><i class="fab fa-stack-overflow fa-lg"></i></a></span>
+      <div class="collapse navbar-collapse" id="siteNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-lg-1">
+          <li class="nav-item">
+            <a
+              class="nav-link rounded px-3"
+              routerLink="/"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded px-3" routerLink="/about" routerLinkActive="active">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded px-3" routerLink="/projects" routerLinkActive="active">Highlights</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link rounded px-3" routerLink="/contact" routerLinkActive="active">Contact</a>
+          </li>
+        </ul>
+        <div class="d-flex flex-wrap align-items-center gap-2 ms-lg-2 social-toolbar" aria-label="Theme and profiles">
+          <button
+            type="button"
+            class="btn btn-outline-secondary btn-sm rounded-pill theme-toggle"
+            (click)="theme.toggle()"
+            [attr.aria-pressed]="theme.isDark()"
+            [attr.aria-label]="theme.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
+            [title]="theme.isDark() ? 'Light mode' : 'Dark mode'"
+          >
+            <i class="fas fa-moon" aria-hidden="true" *ngIf="!theme.isDark()"></i>
+            <i class="fas fa-sun" aria-hidden="true" *ngIf="theme.isDark()"></i>
+          </button>
+          <a
+            *ngFor="let link of socialLinks"
+            [href]="link.href"
+            class="social-btn btn btn-sm btn-outline-secondary border-0"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="link.label"
+          >
+            <i [ngClass]="link.icon" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>
