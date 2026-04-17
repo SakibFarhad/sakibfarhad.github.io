@@ -46,39 +46,49 @@
   <div class="container">
     <h2 class="h4 fw-semibold mb-4">Experience</h2>
     <div class="experience-list">
-      <article *ngFor="let job of experience" class="experience-item rounded-4 border bg-body p-4 mb-4">
-        <div class="d-flex flex-column flex-md-row justify-content-md-between gap-2 mb-3">
-          <div>
-            <h3 class="h5 fw-semibold mb-1">{{ job.role }}</h3>
-            <p class="text-secondary mb-0 small">
-              {{ job.company }}<span *ngIf="job.location"> · {{ job.location }}</span>
+      @for (job of experience; track job) {
+        <article class="experience-item rounded-4 border bg-body p-4 mb-4">
+          <div class="d-flex flex-column flex-md-row justify-content-md-between gap-2 mb-3">
+            <div>
+              <h3 class="h5 fw-semibold mb-1">{{ job.role }}</h3>
+              <p class="text-secondary mb-0 small">
+                {{ job.company }}@if (job.location) {
+                <span> · {{ job.location }}</span>
+              }
             </p>
           </div>
           <span class="text-secondary small text-md-end flex-shrink-0">{{ job.period }}</span>
         </div>
         <ul class="mb-0 ps-3 small text-secondary">
-          <li *ngFor="let line of job.highlights" class="mb-2">{{ line }}</li>
+          @for (line of job.highlights; track line) {
+            <li class="mb-2">{{ line }}</li>
+          }
         </ul>
       </article>
-    </div>
+    }
   </div>
+</div>
 </section>
 
 <section class="py-5">
   <div class="container">
     <h2 class="h4 fw-semibold mb-4">Skills &amp; tools</h2>
     <div class="row g-4">
-      <div class="col-md-6 col-lg-4" *ngFor="let group of skillGroups">
-        <div class="skill-card h-100 rounded-4 p-4 border">
-          <h3 class="h6 fw-semibold mb-3">{{ group.title }}</h3>
-          <ul class="list-unstyled small text-secondary mb-0">
-            <li *ngFor="let item of group.items" class="d-flex gap-2 mb-2">
-              <i class="fas fa-check text-primary mt-1" aria-hidden="true"></i>
-              <span>{{ item }}</span>
-            </li>
-          </ul>
+      @for (group of skillGroups; track group) {
+        <div class="col-md-6 col-lg-4">
+          <div class="skill-card h-100 rounded-4 p-4 border">
+            <h3 class="h6 fw-semibold mb-3">{{ group.title }}</h3>
+            <ul class="list-unstyled small text-secondary mb-0">
+              @for (item of group.items; track item) {
+                <li class="d-flex gap-2 mb-2">
+                  <i class="fas fa-check text-primary mt-1" aria-hidden="true"></i>
+                  <span>{{ item }}</span>
+                </li>
+              }
+            </ul>
+          </div>
         </div>
-      </div>
+      }
     </div>
   </div>
 </section>
@@ -89,20 +99,26 @@
       <div class="col-lg-6">
         <h2 class="h4 fw-semibold mb-4">Education</h2>
         <ul class="list-unstyled mb-0">
-          <li *ngFor="let edu of education" class="education-item rounded-4 border p-4 mb-3 mb-lg-0">
-            <p class="fw-semibold mb-1">{{ edu.degree }}</p>
-            <p class="text-secondary small mb-0">{{ edu.school }}</p>
-            <p *ngIf="edu.period" class="text-secondary small mt-2 mb-0">{{ edu.period }}</p>
-          </li>
+          @for (edu of education; track edu) {
+            <li class="education-item rounded-4 border p-4 mb-3 mb-lg-0">
+              <p class="fw-semibold mb-1">{{ edu.degree }}</p>
+              <p class="text-secondary small mb-0">{{ edu.school }}</p>
+              @if (edu.period) {
+                <p class="text-secondary small mt-2 mb-0">{{ edu.period }}</p>
+              }
+            </li>
+          }
         </ul>
       </div>
       <div class="col-lg-6">
         <h2 class="h4 fw-semibold mb-4">Activities</h2>
         <ul class="list-unstyled mb-0">
-          <li *ngFor="let line of activities" class="d-flex gap-2 mb-3 text-secondary small">
-            <i class="fas fa-circle text-primary mt-1" style="font-size: 0.35rem" aria-hidden="true"></i>
-            <span>{{ line }}</span>
-          </li>
+          @for (line of activities; track line) {
+            <li class="d-flex gap-2 mb-3 text-secondary small">
+              <i class="fas fa-circle text-primary mt-1" style="font-size: 0.35rem" aria-hidden="true"></i>
+              <span>{{ line }}</span>
+            </li>
+          }
         </ul>
       </div>
     </div>

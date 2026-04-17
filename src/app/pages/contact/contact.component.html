@@ -13,9 +13,11 @@
   <div class="container">
     <div class="row g-5 justify-content-center">
       <div class="col-lg-7">
-        <div *ngIf="submitted" class="alert alert-success border-0 shadow-sm mb-4" role="status">
-          <strong>Thanks.</strong> This demo form doesn’t send mail yet—use email or LinkedIn for a real response.
-        </div>
+        @if (submitted) {
+          <div class="alert alert-success border-0 shadow-sm mb-4" role="status">
+            <strong>Thanks.</strong> This demo form doesn’t send mail yet—use email or LinkedIn for a real response.
+          </div>
+        }
 
         <form (ngSubmit)="submit()" #contactForm="ngForm" class="contact-form rounded-4 border bg-body p-4 p-md-5 shadow-sm" novalidate>
           <div class="mb-3">
@@ -27,7 +29,7 @@
               class="form-control form-control-lg"
               required
               autocomplete="name"
-            />
+              />
           </div>
           <div class="mb-3">
             <label class="form-label" for="contact-email">Email</label>
@@ -39,7 +41,7 @@
               type="email"
               required
               autocomplete="email"
-            />
+              />
           </div>
           <div class="mb-4">
             <label class="form-label" for="contact-message">Message</label>

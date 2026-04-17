@@ -40,12 +40,14 @@
 <section class="py-5">
   <div class="container">
     <div class="row g-4">
-      <div class="col-md-4" *ngFor="let item of highlights">
-        <article class="h-100 highlight-card rounded-4 p-4">
-          <h2 class="h5 fw-semibold mb-2">{{ item.title }}</h2>
-          <p class="text-secondary small mb-0">{{ item.text }}</p>
-        </article>
-      </div>
+      @for (item of highlights; track item) {
+        <div class="col-md-4">
+          <article class="h-100 highlight-card rounded-4 p-4">
+            <h2 class="h5 fw-semibold mb-2">{{ item.title }}</h2>
+            <p class="text-secondary small mb-0">{{ item.text }}</p>
+          </article>
+        </div>
+      }
     </div>
   </div>
 </section>
@@ -60,48 +62,56 @@
       <a routerLink="/projects" class="btn btn-outline-primary">All highlights</a>
     </div>
     <div class="row g-4">
-      <div class="col-md-6" *ngFor="let p of featuredProjects">
-        <article class="project-preview position-relative h-100 rounded-4 p-4 d-flex flex-column">
-          <h3 class="h5 fw-semibold mb-2">{{ p.title }}</h3>
-          <p class="text-secondary small flex-grow-1">{{ p.description }}</p>
-          <div class="d-flex flex-wrap gap-1 mb-3">
-            <span *ngFor="let tag of p.tags" class="badge rounded-pill text-bg-light border">{{ tag }}</span>
+      @for (p of featuredProjects; track p) {
+        <div class="col-md-6">
+          <article class="project-preview position-relative h-100 rounded-4 p-4 d-flex flex-column">
+            <h3 class="h5 fw-semibold mb-2">{{ p.title }}</h3>
+            <p class="text-secondary small flex-grow-1">{{ p.description }}</p>
+            <div class="d-flex flex-wrap gap-1 mb-3">
+              @for (tag of p.tags; track tag) {
+                <span class="badge rounded-pill text-bg-light border">{{ tag }}</span>
+              }
+            </div>
+            <div class="mt-auto">
+              @if (p.url) {
+                <a
+                  [href]="p.url"
+                  class="stretched-link text-decoration-none fw-semibold"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >
+                  Visit site <i class="fas fa-arrow-up-right-from-square ms-1 small" aria-hidden="true"></i>
+                </a>
+              }
+              @if (!p.url && p.repoUrl) {
+                <a
+                  [href]="p.repoUrl"
+                  class="stretched-link text-decoration-none fw-semibold"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >
+                  View on GitHub <i class="fab fa-github ms-1 small" aria-hidden="true"></i>
+                </a>
+              }
+              @if (!p.url && !p.repoUrl) {
+                <a routerLink="/contact" class="stretched-link text-decoration-none fw-semibold"
+                  >Start a conversation</a
+                  >
+                }
+              </div>
+            </article>
           </div>
-          <div class="mt-auto">
-            <a
-              *ngIf="p.url"
-              [href]="p.url"
-              class="stretched-link text-decoration-none fw-semibold"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit site <i class="fas fa-arrow-up-right-from-square ms-1 small" aria-hidden="true"></i>
-            </a>
-            <a
-              *ngIf="!p.url && p.repoUrl"
-              [href]="p.repoUrl"
-              class="stretched-link text-decoration-none fw-semibold"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View on GitHub <i class="fab fa-github ms-1 small" aria-hidden="true"></i>
-            </a>
-            <a *ngIf="!p.url && !p.repoUrl" routerLink="/contact" class="stretched-link text-decoration-none fw-semibold"
-              >Start a conversation</a
-            >
-          </div>
-        </article>
+        }
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="py-5">
-  <div class="container text-center">
-    <h2 class="h3 fw-bold mb-3">Let’s talk infrastructure &amp; reliability</h2>
-    <p class="text-secondary col-lg-8 mx-auto mb-4">
-      Hiring for SRE, DevOps, or cloud platform roles—or exploring opportunities in Canada? I’m open to the right fit and remote-friendly teams.
-    </p>
-    <a routerLink="/contact" class="btn btn-primary btn-lg px-4">Contact</a>
-  </div>
-</section>
+  <section class="py-5">
+    <div class="container text-center">
+      <h2 class="h3 fw-bold mb-3">Let’s talk infrastructure &amp; reliability</h2>
+      <p class="text-secondary col-lg-8 mx-auto mb-4">
+        Hiring for SRE, DevOps, or cloud platform roles—or exploring opportunities in Canada? I’m open to the right fit and remote-friendly teams.
+      </p>
+      <a routerLink="/contact" class="btn btn-primary btn-lg px-4">Contact</a>
+    </div>
+  </section>

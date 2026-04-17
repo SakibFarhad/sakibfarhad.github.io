@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { highlights, projects, siteMeta } from '../../data/site-content';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    standalone: false
 })
 export class HomeComponent {
   readonly site = siteMeta;

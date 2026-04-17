@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { contactInfo, siteMeta } from '../../data/site-content';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss'],
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
+    styleUrls: ['./contact.component.scss'],
+    standalone: false
 })
 export class ContactComponent {
   readonly site = siteMeta;

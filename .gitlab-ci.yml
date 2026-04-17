@@ -1,0 +1,53 @@
+# GitLab CI — uses a Debian-based image (official Node on Debian Bookworm).
+# GitLab does not use `runs-on`; the image defines the OS. Do not use ubuntu-* here.
+
+image: node:22-bookworm
+
+variables:
+  CI: "true"
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+
+cache:
+  key:
+    files:
+      - package-lock.json
+  paths:
+    - .npm/
+    - node_modules/
+
+stages:
+  - test
+  - build
+
+test:
+  stage: test
+  before_script:
+    - apt-get update -qq
+    - apt-get install -y --no-install-recommends chromium
+    - export CHROME_BIN="$(command -v chromium || true)"
+    - echo "CHROME_BIN=${CHROME_BIN:-auto}"
+  script:
+    - npm ci
+    - npm run test:ci
+
+build:
+  stage: build
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 week
+
+# Optional: publish to GitLab Pages from the build/ folder (uncomment and adjust if you use Pages).
+# pages:
+#   stage: deploy
+#   needs: ["build"]
+#   script:
+#     - mv build public
+#   artifacts:
+#     paths:
+#       - public
+#   rules:
+#     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

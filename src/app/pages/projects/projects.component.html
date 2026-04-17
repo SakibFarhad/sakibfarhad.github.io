@@ -11,26 +11,36 @@
 <section class="py-5">
   <div class="container">
     <div class="row g-4">
-      <div class="col-md-6" *ngFor="let p of projects">
-        <article class="project-card position-relative h-100 rounded-4 border bg-body p-4 d-flex flex-column">
-          <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
-            <h2 class="h5 fw-semibold mb-0">{{ p.title }}</h2>
-          </div>
-          <p class="text-secondary small flex-grow-1">{{ p.description }}</p>
-          <div class="d-flex flex-wrap gap-1 mb-3">
-            <span *ngFor="let tag of p.tags" class="badge rounded-pill text-bg-light border">{{ tag }}</span>
-          </div>
-          <div class="d-flex flex-wrap gap-3 align-items-center mt-auto">
-            <a *ngIf="p.url" [href]="p.url" class="fw-semibold" target="_blank" rel="noopener noreferrer">
-              Live site <i class="fas fa-arrow-up-right-from-square ms-1 small" aria-hidden="true"></i>
-            </a>
-            <a *ngIf="p.repoUrl" [href]="p.repoUrl" class="link-secondary small" target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-            <a *ngIf="!p.url && !p.repoUrl" routerLink="/contact" class="fw-semibold">Discuss this</a>
-          </div>
-        </article>
-      </div>
+      @for (p of projects; track p) {
+        <div class="col-md-6">
+          <article class="project-card position-relative h-100 rounded-4 border bg-body p-4 d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+              <h2 class="h5 fw-semibold mb-0">{{ p.title }}</h2>
+            </div>
+            <p class="text-secondary small flex-grow-1">{{ p.description }}</p>
+            <div class="d-flex flex-wrap gap-1 mb-3">
+              @for (tag of p.tags; track tag) {
+                <span class="badge rounded-pill text-bg-light border">{{ tag }}</span>
+              }
+            </div>
+            <div class="d-flex flex-wrap gap-3 align-items-center mt-auto">
+              @if (p.url) {
+                <a [href]="p.url" class="fw-semibold" target="_blank" rel="noopener noreferrer">
+                  Live site <i class="fas fa-arrow-up-right-from-square ms-1 small" aria-hidden="true"></i>
+                </a>
+              }
+              @if (p.repoUrl) {
+                <a [href]="p.repoUrl" class="link-secondary small" target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+              }
+              @if (!p.url && !p.repoUrl) {
+                <a routerLink="/contact" class="fw-semibold">Discuss this</a>
+              }
+            </div>
+          </article>
+        </div>
+      }
     </div>
   </div>
 </section>
