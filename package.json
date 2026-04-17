@@ -20,16 +20,6 @@
     "@angular/platform-browser": "^18.2.14",
     "@angular/platform-browser-dynamic": "^18.2.14",
     "@angular/router": "^18.2.14",
-<<<<<<< HEAD
-    
-    "@fortawesome/fontawesome-svg-core": "^1.2.35",
-    "@fortawesome/free-brands-svg-icons": "^5.15.3",
-    "@fortawesome/free-regular-svg-icons": "^5.15.3",
-    "@fortawesome/free-solid-svg-icons": "^5.15.3",
-  "@ng-bootstrap/ng-bootstrap": "^17.0.0",
-    "@popperjs/core": "^2.11.8",
-=======
->>>>>>> dev
     "bootstrap": "^5.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
