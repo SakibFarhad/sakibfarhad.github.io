@@ -34,25 +34,23 @@ export interface EducationItem {
 /** Public contact & profile URLs (aligned with CV). */
 export const contactInfo = {
   email: 'sakib.ibne.farhad@gmail.com',
+  portfolioUrl: 'https://web.sakibfarhad.dev',
   linkedInUrl: 'https://www.linkedin.com/in/sakibfarhad',
   githubUrl: 'https://github.com/SakibFarhad',
   stackOverflowUrl: 'https://stackoverflow.com/users/6342106/sakib-farhad',
 };
 
 export const siteMeta = {
-  name: 'Md. Sakib Ibne Farhad',
+  name: 'Md Sakib Ibne Farhad',
   shortName: 'Sakib',
-  role: 'SRE / DevOps Engineer',
+  role: 'SRE / DevOps Engineer / Cloud Engineer',
   yearsExperience: '8+',
   email: contactInfo.email,
   headline:
-    'SRE / DevOps engineer with 8+ years in AWS, Kubernetes, Terraform, and CI/CD—focused on reliable, automated, production-grade systems.',
-  bio: `SRE / DevOps engineer with 8+ years of experience in AWS cloud infrastructure, DevOps, and MLOps systems. Skilled in Kubernetes, Terraform, and CI/CD automation, with a strong focus on scalable, reliable platforms. I work to improve reliability, automate deployments, and operate distributed systems at scale—in QA through production.`,
-  location: 'Dhaka, Bangladesh',
-  phone: '+880 1715062452',
-  /** E.164-style dial string for tel: links */
-  phoneTel: '+8801715062452',
-  focus: 'AWS · Kubernetes · Terraform · CI/CD · observability',
+    'SRE / DevOps Engineer with 8+ years in AWS, Kubernetes, Terraform, and CI/CD—building scalable, reliable, production-grade systems.',
+  bio: `SRE / DevOps Engineer with 8+ years of experience in AWS cloud infrastructure, DevOps, and MLOps systems. Skilled in Kubernetes, Terraform, and CI/CD automation, with a strong focus on building scalable, reliable, and production-grade systems. Proven ability to improve system reliability, automate deployments, and operate distributed platforms at scale.`,
+  location: 'Regina, Saskatchewan',
+  focus: 'AWS · Kubernetes · Terraform · CI/CD · MLOps · observability',
   /** Shown in the home hero “Stack” line */
   stackSummary: 'Kubernetes · Terraform · Python · Go',
 };
@@ -103,7 +101,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: 'Programming',
-    items: ['Python', 'Go', 'Java'],
+    items: ['Python', 'Go', 'Bash', 'C++'],
   },
   {
     title: 'Databases',
@@ -111,11 +109,15 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: 'Messaging',
-    items: ['Kafka', 'ActiveMQ', 'VerneMQ'],
+    items: ['Kafka', 'ActiveMQ', 'MQTT', 'RabbitMQ'],
   },
   {
     title: 'Systems',
     items: ['Linux (*NIX)', 'VMware', 'KVM'],
+  },
+  {
+    title: 'AI & LLM',
+    items: ['MCP (Model Context Protocol)', 'RAG', 'Agentic AI', 'AWS Bedrock', 'LangGraph'],
   },
 ];
 
@@ -164,7 +166,7 @@ export const experience: ExperienceItem[] = [
     role: 'Software Engineer',
     company: 'GACS Capital Management',
     location: 'Remote',
-    period: 'May 2015 – Jul 2017',
+    period: 'May 2016 – Jul 2017',
     highlights: [
       'Developed financial analytics applications using Python and Java.',
       'Deployed applications on AWS EC2 with RDS (PostgreSQL).',
@@ -177,17 +179,19 @@ export const education: EducationItem[] = [
   {
     degree: 'MSc in Computer Science and Engineering',
     school: 'United International University',
+    period: '2019–2020',
   },
   {
     degree: 'BSc in Electrical and Electronic Engineering',
     school: 'North South University',
+    period: '2010–2016',
   },
 ];
 
 export const activities: string[] = [
-  'Open to relocation and international opportunities (Canada).',
-  'Experience working in remote and cross-functional teams.',
-  'Strong focus on automation, scalability, and system reliability.',
+  'Canadian Permanent Resident (PR) with full work authorization and immediate availability.',
+  'Experienced in remote collaboration across cross-functional engineering teams.',
+  'Passionate about building scalable, automated, and highly reliable systems.',
 ];
 
 export const projects: ProjectItem[] = [
@@ -202,8 +206,8 @@ export const projects: ProjectItem[] = [
   {
     title: 'GitHub & infrastructure work',
     description:
-      'Public code, experiments, and tooling on GitHub. For SRE/DevOps collaboration, roles involving AWS, Kubernetes, and Terraform, or Canada relocation—reach out via LinkedIn or email.',
-    tags: ['Terraform', 'Kubernetes', 'AWS', 'Open to opportunities'],
+      'Public code, experiments, and tooling on GitHub. For SRE/DevOps collaboration or roles involving AWS, Kubernetes, and Terraform—reach out via LinkedIn or email.',
+    tags: ['Terraform', 'Kubernetes', 'AWS', 'Available now'],
     repoUrl: contactInfo.githubUrl,
   },
 ];
