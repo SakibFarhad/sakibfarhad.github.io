@@ -31,6 +31,12 @@ export interface EducationItem {
   period?: string;
 }
 
+export interface CertificationItem {
+  name: string;
+  date: string;
+  credentialId: string;
+}
+
 /** Public contact & profile URLs (aligned with CV). */
 export const contactInfo = {
   email: 'sakib.ibne.farhad@gmail.com',
@@ -47,12 +53,12 @@ export const siteMeta = {
   yearsExperience: '8+',
   email: contactInfo.email,
   headline:
-    'SRE / DevOps Engineer with 8+ years in AWS, Kubernetes, Terraform, and CI/CD—building scalable, reliable, production-grade systems.',
-  bio: `SRE / DevOps Engineer with 8+ years of experience in AWS cloud infrastructure, DevOps, and MLOps systems. Skilled in Kubernetes, Terraform, and CI/CD automation, with a strong focus on building scalable, reliable, and production-grade systems. Proven ability to improve system reliability, automate deployments, and operate distributed platforms at scale.`,
-  location: 'Regina, Saskatchewan',
-  focus: 'AWS · Kubernetes · Terraform · CI/CD · MLOps · observability',
+    'DevOps and Site Reliability Engineer with 8+ years supporting production infrastructure, cloud platforms, Kubernetes, and automated delivery.',
+  bio: `DevOps and Site Reliability Engineer with 8+ years of experience supporting production infrastructure, cloud platforms, Kubernetes environments, and automated delivery pipelines. Hands-on experience with AWS, Terraform, Ansible, Docker, Linux, Python, Bash, CI/CD, monitoring, and incident response. Experienced in production operations, infrastructure modernization, observability, security practices, and cross-functional collaboration. Interested in building reliable, secure infrastructure for AI/LLM workloads and continuously improving engineering productivity through automation.`,
+  location: 'Regina, Saskatchewan, Canada',
+  focus: 'AWS · Kubernetes · Terraform · CI/CD · observability · AI infrastructure',
   /** Shown in the home hero “Stack” line */
-  stackSummary: 'Kubernetes · Terraform · Python · Go',
+  stackSummary: 'AWS · Kubernetes · Terraform · Ansible · Python · Bash',
 };
 
 export const socialLinks: SocialLink[] = [
@@ -65,59 +71,55 @@ export const socialLinks: SocialLink[] = [
 
 export const highlights = [
   {
-    title: 'Reliability at scale',
-    text: 'AWS across QA, staging, and production—with monitoring, alerting, and practices aligned to the Well-Architected Framework.',
+    title: 'Production reliability',
+    text: 'Production and non-production operations, SLOs, incident response, root cause analysis, and operational readiness.',
   },
   {
-    title: 'Automation first',
-    text: 'Terraform for infrastructure, solid CI/CD (GitLab, Jenkins, Bitbucket Pipelines), and Ansible where it fits.',
+    title: 'Infrastructure automation',
+    text: 'Terraform, Ansible, and GitLab CI/CD for repeatable provisioning and delivery across environments.',
   },
   {
-    title: 'Platforms & ML ops',
-    text: 'Kubernetes/OpenShift, containers, and experience with ML-related workloads including SageMaker, RAG pipelines, and AI agents.',
+    title: 'Modern platforms',
+    text: 'Kubernetes and AWS operations, platform modernization, and infrastructure support for ML pipelines, RAG ingestion, and AI agents.',
   },
 ];
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: 'Cloud platforms',
-    items: ['AWS (EKS, ECS, EC2, S3, RDS, Lambda, SQS, Route53)'],
+    title: 'Cloud & infrastructure',
+    items: ['AWS EC2', 'EKS', 'ECS', 'IAM', 'S3', 'VPC', 'CloudWatch', 'Lambda', 'RDS', 'SQS', 'Route 53'],
   },
   {
-    title: 'Containers',
-    items: ['Kubernetes', 'Docker', 'OpenShift'],
+    title: 'Containers & orchestration',
+    items: ['Kubernetes', 'Docker', 'Cluster administration', 'Application deployments', 'Infrastructure troubleshooting'],
   },
   {
     title: 'Infrastructure as code',
-    items: ['Terraform', 'Ansible'],
+    items: ['Terraform', 'Ansible', 'Reusable automation', 'Environment provisioning'],
   },
   {
-    title: 'CI/CD',
-    items: ['GitLab CI/CD', 'Jenkins', 'Bitbucket Pipelines'],
+    title: 'CI/CD & source control',
+    items: ['GitLab CI/CD', 'Jenkins', 'GitHub Actions', 'CircleCI', 'Argo CD', 'Git'],
   },
   {
-    title: 'Monitoring & observability',
-    items: ['Prometheus', 'Grafana', 'ELK Stack', 'CloudWatch'],
+    title: 'Monitoring & reliability',
+    items: ['Prometheus', 'Grafana', 'ELK Stack', 'CloudWatch', 'SLI/SLO monitoring', 'Alerting', 'Incident response', 'Root cause analysis'],
   },
   {
-    title: 'Programming',
-    items: ['Python', 'Go', 'Bash', 'C++'],
+    title: 'Scripting & operating systems',
+    items: ['Python', 'Bash', 'Linux/Unix', 'Windows Server', 'Automation and operational tooling'],
   },
   {
-    title: 'Databases',
-    items: ['PostgreSQL', 'MySQL', 'Oracle', 'Redis'],
+    title: 'Databases & data platforms',
+    items: ['PostgreSQL', 'MySQL', 'MongoDB Atlas', 'DynamoDB', 'Snowflake', 'Amazon RDS', 'Redis'],
   },
   {
-    title: 'Messaging',
-    items: ['Kafka', 'ActiveMQ', 'MQTT', 'RabbitMQ'],
+    title: 'Security & networking',
+    items: ['IAM', 'Vulnerability scanning', 'SonarQube', 'DNS', 'TCP/IP', 'Access controls', 'SAML', 'OAuth 2.0'],
   },
   {
-    title: 'Systems',
-    items: ['Linux (*NIX)', 'VMware', 'KVM'],
-  },
-  {
-    title: 'AI & LLM',
-    items: ['MCP (Model Context Protocol)', 'RAG', 'Agentic AI', 'AWS Bedrock', 'LangGraph'],
+    title: 'AI infrastructure & collaboration',
+    items: ['ML pipeline infrastructure', 'Amazon SageMaker exposure', 'RAG ingestion workflows', 'AI agents', 'MCP servers', 'Jira', 'ServiceNow', 'Confluence', 'Runbooks'],
   },
 ];
 
@@ -126,29 +128,33 @@ export const experience: ExperienceItem[] = [
     role: 'Site Reliability Engineer',
     company: 'IQVIA',
     location: 'Remote',
-    period: 'Dec 2024 – Present',
+    period: 'Dec 2024 – Jul 2026',
     highlights: [
-      'Managed AWS infrastructure across QA, staging, and production for high availability and reliability.',
-      'Built and maintained Infrastructure as Code with Terraform to standardize and scale cloud environments.',
-      'Automated CI/CD pipelines to improve deployment consistency and reduce manual effort.',
-      'Implemented monitoring and alerting with Prometheus, Grafana, ELK, and CloudWatch.',
-      'Deployed and operated AI/ML workloads including SageMaker, RAG pipelines, and AI agents.',
-      'Strengthened security using IAM best practices and the AWS Well-Architected Framework.',
+      'Supported production and non-production enterprise analytics environments across AWS, including EKS, ECS, IAM, networking, and cloud monitoring.',
+      'Managed infrastructure provisioning and configuration through Terraform, Ansible, and GitLab CI/CD across development, QA, pilot, and production environments.',
+      'Served as a primary technical owner for the Orchestrated Analytics (OA) platform, supporting service reliability, SLOs, upgrades, operational readiness, and production troubleshooting.',
+      'Supported Kubernetes and application upgrades, including blue-green deployment approaches to reduce deployment risk and service disruption.',
+      'Built and maintained observability practices using Prometheus, Grafana, ELK Stack, and CloudWatch.',
+      'Participated in a 24/7 production on-call rotation, coordinated incident bridge calls, performed root cause analysis, and maintained operational runbooks.',
+      'Contributed to migrating a legacy .NET application with Windows API dependencies from bare-metal infrastructure toward Kubernetes on AWS EKS.',
+      'Supported Snowflake and Amazon S3 data platform modernization and infrastructure for machine-learning pipelines, RAG ingestion, AI agents, and MCP-based workloads.',
+      'Applied security and quality controls using IAM, Docker image scanning, SonarQube, and infrastructure security practices.',
+      'Collaborated with engineering and business stakeholders using Jira, ServiceNow, and Confluence to resolve recurring operational issues and improve service delivery.',
     ],
   },
   {
     role: 'DevOps Engineer',
     company: 'TigerIT Bangladesh Ltd.',
     location: 'Bangladesh',
-    period: 'Sep 2019 – Dec 2024',
+    period: '2019 – 2024',
     highlights: [
-      'Designed and maintained CI/CD pipelines to improve deployment speed and reliability.',
-      'Managed Kubernetes and Docker-based environments for scalable microservices.',
-      'Built and operated distributed data platforms using Hadoop, Hive, HBase, Druid, and Kudu.',
-      'Implemented high-availability setups with HAProxy and keepalived.',
-      'Maintained observability with ELK, Prometheus, and Grafana.',
-      'Automated provisioning and configuration with Ansible.',
-      'Supported real-time systems using WebRTC technologies (Jitsi, Janus Gateway).',
+      'Automated provisioning and configuration of on-premises infrastructure using Ansible, supporting Kubernetes deployments across 65 physical servers in two data centres.',
+      'Supported containerized applications and Kubernetes operations, including deployment troubleshooting, service availability, and infrastructure maintenance.',
+      'Built and maintained automation and deployment workflows using scripting, Git, and configuration-management practices.',
+      'Supported high-availability PostgreSQL environments, replication, PgBouncer connection pooling, and database failover procedures.',
+      'Troubleshot Linux systems, network connectivity, DNS, application dependencies, and production infrastructure issues.',
+      'Worked with identity and access technologies including Active Directory, Kerberos, SAML, and OAuth 2.0.',
+      'Contributed to operational documentation, incident resolution, and disaster recovery readiness for enterprise and government-facing services.',
     ],
   },
   {
@@ -177,21 +183,37 @@ export const experience: ExperienceItem[] = [
 
 export const education: EducationItem[] = [
   {
-    degree: 'MSc in Computer Science and Engineering',
-    school: 'United International University',
-    period: '2019–2020',
+    degree: 'Master of Science in Computer Science and Engineering',
+    school: 'United International University · Assessed by WES as Master of Science',
   },
   {
-    degree: 'BSc in Electrical and Electronic Engineering',
-    school: 'North South University',
-    period: '2010–2016',
+    degree: 'Bachelor of Science in Electrical and Electronics Engineering',
+    school: 'North South University · Assessed by WES as Bachelor of Science',
   },
 ];
 
 export const activities: string[] = [
-  'Canadian Permanent Resident (PR) with full work authorization and immediate availability.',
-  'Experienced in remote collaboration across cross-functional engineering teams.',
-  'Passionate about building scalable, automated, and highly reliable systems.',
+  'Interested in building reliable, secure infrastructure for AI/LLM workloads.',
+  'Focused on improving engineering productivity through automation.',
+  'Experienced in cross-functional incident coordination and technical documentation.',
+];
+
+export const certifications: CertificationItem[] = [
+  {
+    name: 'Microsoft Certified: Azure Solutions Architect Expert',
+    date: 'September 2026',
+    credentialId: '9EAA71A6CC8A8048',
+  },
+  {
+    name: 'Microsoft Certified: Azure Administrator Associate',
+    date: 'August 2026',
+    credentialId: '3721419486B35333',
+  },
+  {
+    name: 'CompTIA Network+ ce',
+    date: 'October 2026',
+    credentialId: 'COMP001023132519',
+  },
 ];
 
 export const projects: ProjectItem[] = [
@@ -206,8 +228,8 @@ export const projects: ProjectItem[] = [
   {
     title: 'GitHub & infrastructure work',
     description:
-      'Public code, experiments, and tooling on GitHub. For SRE/DevOps collaboration or roles involving AWS, Kubernetes, and Terraform—reach out via LinkedIn or email.',
-    tags: ['Terraform', 'Kubernetes', 'AWS', 'Available now'],
+      'Public code, experiments, and tooling on GitHub related to infrastructure, automation, and cloud-native platforms.',
+    tags: ['Terraform', 'Kubernetes', 'AWS', 'Automation'],
     repoUrl: contactInfo.githubUrl,
   },
 ];

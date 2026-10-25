@@ -40,6 +40,23 @@
 
 <section class="py-5 bg-body border-top">
   <div class="container">
+    <h2 class="h4 fw-semibold mb-4">Certifications</h2>
+    <div class="row g-3">
+      @for (certification of certifications; track certification) {
+        <div class="col-md-6 col-lg-4">
+          <article class="h-100 rounded-4 border bg-body p-4">
+            <h3 class="h6 fw-semibold mb-2">{{ certification.name }}</h3>
+            <p class="small text-secondary mb-2">{{ certification.date }}</p>
+            <p class="small text-secondary mb-0">Credential ID: {{ certification.credentialId }}</p>
+          </article>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-body border-top">
+  <div class="container">
     <h2 class="h4 fw-semibold mb-4">Experience</h2>
     <div class="experience-list">
       @for (job of experience; track job) {

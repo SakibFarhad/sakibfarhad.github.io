@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {
   activities,
+  certifications,
   education,
   experience,
   skillGroups,
@@ -18,5 +19,6 @@ export class AboutComponent {
   readonly skillGroups = skillGroups;
   readonly experience = experience;
   readonly education = education;
+  readonly certifications = certifications;
   readonly activities = activities;
 }
