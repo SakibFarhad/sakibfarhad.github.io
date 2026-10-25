@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --aot --delete-output-path --output-path build/ && cp CNAME build/",
+    "build": "ng build --aot --delete-output-path --output-path build/ && cp CNAME build/ && cp build/index.html build/404.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "ng test --watch=false --progress=false --browsers=ChromeHeadlessCI --code-coverage=false"
